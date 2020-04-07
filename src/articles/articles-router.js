@@ -7,13 +7,13 @@ const articlesRouter = express.Router()
 const jsonParser = express.json()
 
 const serializeArticle = article => ({
-    id: article.id,
-    style: article.style,
-    title: xss(article.title),
-    content: xss(article.content),
-    date_published: article.date_published,
-    author: article.author,
-  })
+     id: article.id,
+     style: article.style,
+     title: xss(article.title),
+     content: xss(article.content),
+     date_published: article.date_published,
+     author: article.author,
+ })
 
 articlesRouter  
     .route('/')
@@ -75,7 +75,8 @@ articlesRouter
             style: res.article.style,
             title: xss(res.article.title), //sanitize
             content: xss(res.article.content), //sanitize
-            date_published: res.article.date_published
+            date_published: res.article.date_published,
+            author:res.article.author
         })
     })
     .delete((req, res, next) => {
