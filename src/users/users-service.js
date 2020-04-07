@@ -20,7 +20,7 @@ const UsersService = {
             .from('blogful_users')
             .select('*')
             .where({ id })
-            .delete()
+            // .delete()
     }, 
 
     deleteUser(knex, id) {
@@ -28,7 +28,7 @@ const UsersService = {
             .where({ id })
             .delete()
     },
-
+    // This isn't working
     updateUser(knex, id, newUserFields){
         return knex('blogful_users')
             .where({ id })

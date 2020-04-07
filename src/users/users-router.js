@@ -83,14 +83,17 @@ usersRouter
                 .catch(next)
         })
         .patch(jsonParser, (req, res, next) => {
-            const { fullname, username, password, nickname } = req.body
-            const userToUpdate = { fullname, username, password, nickname }
+            const { fullname, username, password, nickname } = req.body;
+            const userToUpdate = { fullname, username, password, nickname };
 
-            const numberOfValues = Object.values(userToUpdate).filter(Boolean).length
+            const numberOfValues = Object.values(userToUpdate).filter(Boolean).length;
             if (numberOfValues === 0)
                 return res.status(400).json({
                     error: { message: `Request body must contain either 'fullname', 'nickname', 'password' or 'nickname'`}
                 })
+            // Check values
+            console.log(`Here is userToUpdate ${userToUpdate.fullname}`)
+            console.log(req.params.user_id)
 
             UsersService.updateUser(
                 req.app.get('db'), 
