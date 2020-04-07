@@ -12,4 +12,3 @@ ALTER TABLE blogful_articles
         author INTEGER REFERENCES blogful_users(id)
         ON DELETE SET NULL;
 
-    

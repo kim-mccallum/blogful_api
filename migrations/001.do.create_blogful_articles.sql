@@ -5,8 +5,5 @@ CREATE TABLE blogful_articles (
     date_published TIMESTAMPTZ DEFAULT now() NOT NULL
 );
 
-ALTER TABLE blogful_articles    
-    ADD COLUMN
-        author INTEGER REFERENCES blogful_users(id)
-        ON DELETE SET NULL;
+
         
